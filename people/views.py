@@ -7,7 +7,7 @@ from rest_framework.decorators import api_view
 
 @api_view(['GET'])
 def get_board(request):
-    board = Person.objects.filter(society__isnull=True).all().order_by('-role')
+    board = Person.objects.filter(society__isnull=True).all().order_by('role')
     board_serializer = PeopleSerializer(board, many=True, read_only=True, context={"request": request})
     return Response({
         "error": False,
