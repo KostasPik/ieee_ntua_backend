@@ -66,7 +66,7 @@ class Person(models.Model):
         if self.email:
             self.email = self.email.strip().lower()
 
-        name_of_thumbnail = str(slugify(self.full_name_english, allow_unicode=True))+"-"+str(self.random_number_generator)
+        name_of_thumbnail = str(slugify(self.full_name_english, allow_unicode=True))+"-"+str(self.random_number_after_name)
         if os.path.basename(self.profile_pic.name) != name_of_thumbnail+".jpg":
             self.profile_pic = compress_profile_pic(self.profile_pic, 130, name_of_thumbnail)
         super(Person, self).save(*args, **kwargs)
