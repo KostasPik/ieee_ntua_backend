@@ -45,6 +45,7 @@ class Person(models.Model):
     full_name_greek = models.CharField(max_length=200, help_text="Όνομα στα Ελληνικά.")
     full_name_english = models.CharField(max_length=200, help_text="Όνομα στα Αγγλικά")
     role = models.CharField(max_length=200, help_text="Ρόλος του ατόμου.")
+    rank = models.PositiveSmallIntegerField(default=1, help_text="Το μικρότερο αντιστοιχεί σε μεγαλύτερη προτεραιότητα για τα άτομα ίδιας κατηγορίας.")
     profile_pic = models.ImageField(upload_to=get_image_path, storage=OverwriteStorage, max_length=350, help_text="Η εικόνα που θα ανεβάσετε να μην έχει το ίδιο όνομα με αυτή που είναι ανεβασμένη (αν υπάρχει ανεβασμένη εικόνα).")
     society = models.ForeignKey(Society, null=True, blank=True, on_delete=models.CASCADE)
     random_number_after_name = models.IntegerField(default=random_number_generator, editable=False)
