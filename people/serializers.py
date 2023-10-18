@@ -6,7 +6,7 @@ from .models import Person
 
 
 class PeopleSerializer(serializers.ModelSerializer):
-    
+
 
     profile_pic = serializers.SerializerMethodField()
     full_name = serializers.SerializerMethodField()
@@ -20,8 +20,8 @@ class PeopleSerializer(serializers.ModelSerializer):
         
 
     def get_profile_pic(self, obj):
-        request = self.context.get('request')
-        print(obj.profile_pic)
+        # request = self.context.get('request')
+        # print(obj.profile_pic)
         return self.context['request'].build_absolute_uri(obj.profile_pic.url)
 
     class Meta:
