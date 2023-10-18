@@ -16,5 +16,5 @@ urlpatterns = [
     path('news/article/<str:news_slug>/', get_news_article, name='get-news-article'),
     # path('load-events/',load_events),
     path('awards/', get_awards),
-    path('board', get_board),
+    path('board/', get_board),
 ]
